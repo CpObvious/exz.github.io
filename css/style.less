@@ -1,34 +1,177 @@
+@font-face {
+  font-family: "Deutsch Gothic";
+  src: url("/cards/fonts/deutsch-gothic.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+
+}
 body{
+    background-color: rgb(221, 16, 16);
     background-image: url("../img/preview.png");
     background-repeat: no-repeat;
-    background-attachment: inset;
+    background-attachment: fixed;
     background-size: cover;
+    background-position: center center;
     }
+h2 {
+  font-family: 'Stalinist One', cursive;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
 
-    
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
 
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
 
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
 
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
 
-.ordens {
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  // font-family: 'Jim Nightshade', sans-serif;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.container {
+  overflow: hidden;
+}
+
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+border: none;
+outline: none;
+padding: 12px 16px;
+background-color: #f1f1f1;
+cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+background-color: #666;
+color: white;
+}
+.carousel-item{
+    color: rgb(240, 240, 16);
+}
+.cards {
+        float: left;
         display: flex;
         flex-direction: column;
         margin: auto;
         padding: 20px;
         padding-top: 0;
         width: 1200px;
-        min-height: 50vh;
-    
+        min-height: 100vh;
+        border-radius: 60px 0 60px 0;
         background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
     
-        .filters {
+    .filters {
             display: flex;
-            align-items: center;
+            align-items: top;
             margin-top: 20px;
-            padding: 10px;
-            background-color: lightgreen;
-            font-family: 'Roboto Slab', 'Georgia', serif;
-    
+            padding: 20px;
+            background-color: rgb(194, 57, 33);
+            font-family: 'Stalinist One', cursive;
+            border-color:#db9915;
+            border-radius: 60px 0 60px 0;
+            
+            
+            
+
             input:focus,
             input:active,
             select:focus,
@@ -44,12 +187,18 @@ body{
                 text-transform: uppercase;
             }
     
-            // &__loyality-list {
-            //     margin-right: 20px;
-            //     padding: 5px 10px;
-            //     border: 1px solid rgb(137, 196, 252);
-            // }
+            &__category-list {
+                margin-right: 20px;
+                padding: 5px 10px;
+                border: 1px solid rgb(137, 196, 252);
+            }
     
+            &__price-value {
+                padding: 5px 10px;
+                width: 100px;
+    
+                border: 1px solid rgb(137, 196, 252);
+            }
     
             &-button {
                 font-family: "Montserrat", "Verdana", sans-serif;
@@ -72,24 +221,23 @@ body{
             }
         }
     
-        .container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            min-height: 100%;
-            justify-content: space-around;
-            align-items: center;
-        }
+        // .container {
+        //     display: flex;
+        //     flex-direction: column;
+        //     flex-wrap: wrap;
+        //     min-height: 100%;
+        //     justify-content: space-between;
+        //     align-items: top;
+        // }
     }
     
-    .orden__item {
-        box-sizing: border-box;
+    .card__item {
+        box-sizing: content-box;
         position: relative;
-        display: flex;
-        flex-direction: column;
+        display: block;
+        flex-direction: row;
         align-items: center;
-        
-        width: 30%;
+        width: 40%;
         margin-top: 20px;
         padding: 25px;
         
@@ -112,9 +260,13 @@ body{
         }
     
         &-image {
-            width: 90%;
-            border: 2px outset rgb(255, 252, 233);
-            border-radius: 10px;
+            height: 450px;
+            width: 350px;
+            padding: 5%;
+            border: 2px outset rgb(228, 200, 22);
+            border-radius: 5px;
+            margin: 0 auto;
+            display: block;
         }
     
         &-title {
@@ -131,6 +283,21 @@ body{
             line-height: 150%;
             text-align: justify;
             text-indent: 0.5rem;
+        }
+    
+        &-price {
+            font-family: 'Roboto Slab', 'Georgia', serif;
+        }
+    
+        &__price-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(114, 9, 163);
+        }
+    
+        &__price-value {
+            font-size: 1.25rem;
+            color: darkblue;
         }
     
         &_hidden {
